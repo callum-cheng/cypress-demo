@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -26,6 +26,44 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Num-Input {
+  margin-top: 5%;
+  width: 30%;
+  font-size: large;
+  border-color: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+button {
+  margin: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 4%;
+  font-size: calc(8px + 2vmin);
+}
+
+.App-main {
+  background-color: #6081c3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result {
+  background-color: black;
+  color: white;
+  font-size: large;
+  padding: 2%;
+  width: 50%
+}
+
+.inline {
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
