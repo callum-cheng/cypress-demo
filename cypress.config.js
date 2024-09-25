@@ -16,10 +16,6 @@ export default defineConfig({
         reportFilename: 'functional-test-report.html',
         reportPageTitle: 'Functional Test Report',
       },
-      mochaJunitReporterReporterOptions: {
-        mochaFile:
-          'reports/functional/mocha-junit/functional-test-report-[hash].xml',
-      },
     },
   }
 });

@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mocha-junit-reporter": "^2.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -19,7 +21,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:ci": "cypress run --browser chrome --headless"
+    "cypress:ci": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports && npm run generate-html-report",
+    "merge-mocha-json-reports": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rmdir /s /q reports\\functional\\.jsons",
+    "generate-html-report": "cd reports/functional && npx marge mochawesome.json"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,7 @@
     "@types/cypress": "^0.1.6",
     "cypress": "^13.14.2",
     "cypress-multi-reporters": "^1.6.4",
-    "eslint-plugin-cypress": "^3.5.0"
+    "eslint-plugin-cypress": "^3.5.0",
+    "jrm": "^1.0.1"
   }
 }

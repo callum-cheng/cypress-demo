@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.283" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-09-25T20:42:46" tests="0" file="cypress\e2e\test.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="My First Test" timestamp="2024-09-25T20:42:46" tests="1" time="2.256" failures="0">
+    <testcase name="My First Test Loads the page" time="0.400" classname="Loads the page">
+    </testcase>
+  </testsuite>
+  <testsuite name="Counter Default Values" timestamp="2024-09-25T20:42:48" tests="2" time="0.239" failures="0">
+    <testcase name="Counter Default Values Input starts at 1" time="0.116" classname="Input starts at 1">
+    </testcase>
+    <testcase name="Counter Default Values Result starts at 0" time="0.084" classname="Result starts at 0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Input Number" timestamp="2024-09-25T20:42:49" tests="3" time="1.424" failures="0">
+    <testcase name="Input Number Increments by 1" time="0.467" classname="Increments by 1">
+    </testcase>
+    <testcase name="Input Number Minimum value is 1" time="0.410" classname="Minimum value is 1">
+    </testcase>
+    <testcase name="Input Number Allows typing a number" time="0.439" classname="Allows typing a number">
+    </testcase>
+  </testsuite>
+  <testsuite name="Calculates Result" timestamp="2024-09-25T20:42:50" tests="1" time="0.349" failures="0">
+    <testcase name="Calculates Result Increments by 1" time="0.297" classname="Increments by 1">
+    </testcase>
+  </testsuite>
+</testsuites>
