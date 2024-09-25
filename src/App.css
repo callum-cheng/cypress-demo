@@ -35,6 +35,12 @@
   border-color: #000000;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   outline: none;
+  font-size: calc(8px + 2vmin);
+}
+
+.Num-Input::-webkit-inner-spin-button,
+.Num-Input::-webkit-outer-spin-button {
+  opacity: 1;
 }
 
 button {
@@ -51,12 +57,13 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 30%;
 }
 
 .result {
   background-color: black;
   color: white;
-  font-size: large;
+  font-size: calc(10px + 3vmin);
   padding: 2%;
   width: 50%
 }
