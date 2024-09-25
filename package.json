@@ -21,8 +21,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:ci": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports && npm run generate-html-report",
-    "merge-mocha-json-reports": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rmdir /s /q reports\\functional\\.jsons",
+    "cypress:ci": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports-ci && npm run generate-html-report",
+    "cypress:win": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports-win && npm run generate-html-report",
+    "merge-mocha-json-reports-ci": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rm -r reports/functional/.jsons",
+    "merge-mocha-json-reports-win": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rmdir /s /q reports\\functional\\.jsons",
     "generate-html-report": "cd reports/functional && npx marge mochawesome.json"
   },
   "eslintConfig": {
