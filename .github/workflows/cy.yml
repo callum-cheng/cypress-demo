@@ -1,4 +1,4 @@
-name: CI
+name: Run Cypress Tests
 
 on:
   pull_request:
@@ -34,7 +34,7 @@ jobs:
       run: npm run cypress:ci
 
     - name: Produce Cypress test results
-      uses: actions/upload-artifact@3
+      uses: actions/upload-artifact@v3
       with:
         name: cypress-test-results
         path: reports/functional
