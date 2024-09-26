@@ -1,22 +1,22 @@
 /// <reference types="cypress" />
 
-beforeEach(() => {
+beforeEach(() => { // before every test - clean state
   cy.visit('localhost:3000')
 });
 
-describe('My First Test', () => {
+describe('My First Test', () => { // Describe and it titles can be anything
   it('Loads the page', () => {
-    cy.get('.App-link').contains('Learn React')
-    cy.get('[data-testid="prompt"]').should('contain', 'Increase by:')
+    cy.get('.App-link').contains('Learn React') // 'find element'
+    cy.get('[data-testid="prompt"]').should('contain', 'Increase by:') // another approach 'assert element'
   })
 })
 
-describe('Counter Default Values', () => {
+describe('Counter Default Values', () => { // Default values for input and result
   it('Input starts at 1', () => {
-    cy.get('[data-testid="input-number"]').should('have.value', '1')
+    cy.get('[data-testid="input-number"]').should('have.value', '1') // input tag uses value
   })
   it('Result starts at 0', () => {
-    cy.get('[data-testid="result"]').should('have.text', '0')
+    cy.get('[data-testid="result"]').should('have.text', '0') // p tag uses text
   })
 })
 
