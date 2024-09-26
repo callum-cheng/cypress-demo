@@ -53,3 +53,11 @@ describe('Calculates Result', () => {
     cy.get('[data-testid="result"]').should('have.text', '2')
   })
 })
+
+describe('Reset button', () => {
+  it('sets initial values', () => {
+    cy.get('[data-testid="btn-reset"]').click()
+    cy.get('[data-testid="input-number"]').should('have.value', '1')
+    cy.get('[data-testid="result"]').should('have.text', '0')
+  })
+})
