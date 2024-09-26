@@ -55,7 +55,21 @@ describe('Calculates Result', () => {
 })
 
 describe('Reset button', () => {
-  it('sets initial values', () => {
+  it('sets to initial values', () => {
+    cy.get('[data-testid="btn-reset"]').click() // when in default state
+    cy.get('[data-testid="input-number"]').should('have.value', '1')
+    cy.get('[data-testid="result"]').should('have.text', '0')
+    
+    cy.get('[data-testid="btn-increment"]').click() // when result has been incremented
+    cy.get('[data-testid="result"]').should('have.text', '1')
+    cy.get('[data-testid="btn-reset"]').click()
+    cy.get('[data-testid="result"]').should('have.text', '0')
+
+    cy.get('[data-testid="input-number"]').type('{selectAll}2') // when both result and input have changed
+    cy.get('[data-testid="input-number"]').should('have.value', '2').trigger('change')
+    cy.get('[data-testid="btn-increment"]').click()
+    cy.get('[data-testid="input-number"]').should('have.value', '2')
+    cy.get('[data-testid="result"]').should('have.text', '2')
     cy.get('[data-testid="btn-reset"]').click()
     cy.get('[data-testid="input-number"]').should('have.value', '1')
     cy.get('[data-testid="result"]').should('have.text', '0')
