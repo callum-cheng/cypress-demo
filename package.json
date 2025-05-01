@@ -21,11 +21,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:ci": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports-ci && npm run generate-html-report",
-    "cypress:win": "cypress run --browser chrome --headless && npm run merge-mocha-json-reports-win && npm run generate-html-report",
+    "cypress-ci": "cypress run --browser chrome && npm run merge-mocha-json-reports-ci && npm run generate-html-report",
+    "cypress-ci:win": "cypress run --browser chrome && npm run merge-mocha-json-reports-ci:win && npm run generate-html-report",
     "merge-mocha-json-reports-ci": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rm -r reports/functional/.jsons",
-    "merge-mocha-json-reports-win": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rmdir /s /q reports\\functional\\.jsons",
-    "generate-html-report": "cd reports/functional && npx marge mochawesome.json"
+    "merge-mocha-json-reports-ci:win": "npx mochawesome-merge 'reports/functional/.jsons/*.json' > reports/functional/mochawesome.json && rmdir /s /q reports\\functional\\.jsons",
+    "generate-html-report": "cd reports/functional && npx marge mochawesome.json",
+    "cypress:slow": "cypress run --env commandDelay=500"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +50,7 @@
     "@types/cypress": "^0.1.6",
     "cypress": "^13.14.2",
     "cypress-multi-reporters": "^1.6.4",
+    "cypress-slow-down": "^1.3.1",
     "eslint-plugin-cypress": "^3.5.0",
     "jrm": "^1.0.1"
   }
