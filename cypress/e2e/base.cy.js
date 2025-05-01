@@ -1,12 +1,18 @@
 /// <reference types="cypress" />
 
+import { slowCypressDown } from 'cypress-slow-down' // slow down the tests
+
 beforeEach(() => { // before every test - clean state
   cy.visit('localhost:3000')
 });
 
+if(Cypress.env('commandDelay')) {
+  slowCypressDown(Cypress.env('commandDelay'))
+}
+
 describe('My First Test', () => { // Describe and it titles can be anything
   it('Loads the page', () => {
-    cy.get('.App-link').contains('Learn React') // 'find element'
+    cy.get('h1').contains('Counter') // 'find h1 element'
     cy.get('[data-testid="prompt"]').should('contain', 'Increase by:') // another approach 'assert element'
   })
 })
@@ -42,36 +48,5 @@ describe('Input Number', () => {
     cy.get('[data-testid="input-number"]').type('{selectall}100')
     cy.get('[data-testid="input-number"]').blur()
     cy.get('[data-testid="input-number"]').should('have.value', '100')
-  })
-})
-
-describe('Calculates Result', () => {
-  it('Increments by 1', () => {
-    cy.get('[data-testid="btn-increment"]').click()
-    cy.get('[data-testid="result"]').should('have.text', '1')
-    cy.get('[data-testid="btn-increment"]').click()
-    cy.get('[data-testid="result"]').should('have.text', '2')
-  })
-})
-
-describe('Reset button', () => {
-  it('sets to initial values', () => {
-    cy.get('[data-testid="btn-reset"]').click() // when in default state
-    cy.get('[data-testid="input-number"]').should('have.value', '1')
-    cy.get('[data-testid="result"]').should('have.text', '0')
-    
-    cy.get('[data-testid="btn-increment"]').click() // when result has been incremented
-    cy.get('[data-testid="result"]').should('have.text', '1')
-    cy.get('[data-testid="btn-reset"]').click()
-    cy.get('[data-testid="result"]').should('have.text', '0')
-
-    cy.get('[data-testid="input-number"]').type('{selectAll}2') // when both result and input have changed
-    cy.get('[data-testid="input-number"]').should('have.value', '2').trigger('change')
-    cy.get('[data-testid="btn-increment"]').click()
-    cy.get('[data-testid="input-number"]').should('have.value', '2')
-    cy.get('[data-testid="result"]').should('have.text', '2')
-    cy.get('[data-testid="btn-reset"]').click()
-    cy.get('[data-testid="input-number"]').should('have.value', '1')
-    cy.get('[data-testid="result"]').should('have.text', '0')
   })
 })

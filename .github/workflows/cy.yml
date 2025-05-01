@@ -28,13 +28,14 @@ jobs:
         CI: true
 
     - name: Wait for application to be ready
-      run: sleep 10
+      run: |
+        npx wait-on http://localhost:3000 --timeout 10000
 
     - name: Run Cypress tests
-      run: npm run cypress:ci
+      run: npm run cypress-ci
 
     - name: Produce Cypress test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cypress-test-results
         path: reports/functional

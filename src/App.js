@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -20,18 +19,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <a data-testid="link"
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <br />
         <div className="App-main">
-          <h3>Counter</h3>
+          <h1>Counter</h1>
           <label data-testid="prompt">Increase by:</label>
           <input className='Num-Input' type="number" data-testid="input-number" onChange={updateNumInput} value={numInput} min={1}></input>
           <p className="result" data-testid="result">{num}</p>
