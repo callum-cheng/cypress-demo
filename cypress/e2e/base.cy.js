@@ -13,7 +13,7 @@ if(Cypress.env('commandDelay')) {
 describe('My First Test', () => { // Describe and it titles can be anything
   it('Loads the page', () => {
     cy.get('h1').contains('Counter') // 'find h1 element'
-    cy.get('[data-testid="prompt"]').should('contain', 'Increase by:') // another approach 'assert element'
+    cy.get('[data-testid="prompt"]').should('contain', 'Adjust by:') // another approach 'assert element'
   })
 })
 

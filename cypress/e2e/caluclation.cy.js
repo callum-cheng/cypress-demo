@@ -17,6 +17,12 @@ describe('Calculates Result', () => {
     cy.get('[data-testid="btn-increment"]').click()
     cy.get('[data-testid="result"]').should('have.text', '2')
   })
+  it('Decrements by 1', () => {
+    cy.get('[data-testid="btn-decrement"]').click()
+    cy.get('[data-testid="result"]').should('have.text', '-1')
+    cy.get('[data-testid="btn-decrement"]').click()
+    cy.get('[data-testid="result"]').should('have.text', '-2')
+  })
 })
 
 describe('Reset button', () => {
