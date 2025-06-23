@@ -9,6 +9,9 @@ function App() {
   const increment = () => {
     setNum(num + numInput);
   };
+  const decrement = () => {
+    setNum(num - numInput)
+  };
 
   const updateNumInput = (event) => {
     if (event.target.value < 1 && event.target.value !== '') {
@@ -46,10 +49,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <main className="App-main">
+        <main className="App-main pad">
           <h1>Counter</h1>
-          <label htmlFor="num-input" data-testid="prompt">Increase by:</label>
+          <label htmlFor="num-input" data-testid="prompt">Adjust by:</label>
           <input
             id="num-input"
             className="Num-Input"
@@ -64,17 +66,18 @@ function App() {
           <p className="result" data-testid="result" aria-live="polite">
             {num}
           </p>
-          <div className="inline">
+          <div className="inline pad">
             <button onClick={increment} data-testid="btn-increment" disabled={isDisabled} aria-label="Increment the counter result">
               Increment
+            </button>
+            <button onClick={decrement} data-testid="btn-decrement">
+              Decrement
             </button>
             <button onClick={reset} data-testid="btn-reset" aria-label="Reset the counter">
               Reset
             </button>
           </div>
-          <br />
         </main>
-      </header>
     </div>
   );
 }
